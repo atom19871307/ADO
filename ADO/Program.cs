@@ -18,39 +18,18 @@ namespace ADO
 		static SqlConnection connection;
 		static void Main(string[] args)
 		{
+			// Строка подключения к серверу и БД// Կապի տողը, որը նշում է սերվերը և բազայի անունը 
 			string connection_string = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Movies_PV_522;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-			Console.WriteLine(connection_string);
-			connection  = new SqlConnection(connection_string);
-			
-			string cmd = "SELECT * FROM Directors";
-			Select(cmd);
-			Console.WriteLine($"Количество записей: {Scalar("SELECT COUNT(*) FROM Directors")}");
-			Select("SELECT * FROM Movies");
-			
-		}
-		static void Select(string cmd)
-		{
-			SqlCommand command = new SqlCommand(cmd, connection);
-			connection.Open();
-			SqlDataReader reader = command.ExecuteReader();
-			for (int i = 0; i <reader.FieldCount; i++)
-			Console.Write($"{reader.GetName(i)}\t");
-			while (reader.Read())
-				{
-					Console.WriteLine($"{reader[0]}\t{reader[1]}\t{reader[2]}");
-				}
-			reader.Close();
-			connection.Close();
-		}
+			// Создаем объект класса DatabaseHelper
+			// Ստեղծում ենք մեր նոր դասի օբյեկտը // Ստեղծում ենք DatabaseHelper-ի օբյեկտը 
+			DatabaseHelper db = new DatabaseHelper(connection_string);
 
-		static object Scalar(string cmd)
-		{
-			object value = null;
-			SqlCommand command = new SqlCommand(cmd, connection);
-			connection.Open();
-			value = command.ExecuteScalar();
-			connection.Close();
-			return value;
+			 // Вызываем метод Select для директоров// Կանչում ենք Select մեթոդը ռեժիսորների համար	// Կանչում ենք մեթոդները օբյեկտի միջոցով
+			db.Select("SELECT * FROM Directors");
+			// Вызываем Scalar для подсчета количества// Կանչում ենք Scalar մեթոդը քանակը հաշվելու համար 
+			Console.WriteLine($"Количество записей: {db.Scalar("SELECT COUNT(*) FROM Directors")}");
+
 		}
+	
 	}
 }
