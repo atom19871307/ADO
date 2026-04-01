@@ -26,7 +26,15 @@ namespace PV_522_ADO
 
 			connector.Select("SELECT * FROM Directors");
 			connector.Select("title,first_name,last_name", "Movies,Directors", "director=director_id");
+			//connector.Insert("Directors", "first_name, last_name",  "'Christopher', 'Nolar'");
 
+			//--------------------------------------------------------------------------
+			// Добавляем нового режиссера
+			connector.Select("SELECT * FROM Directors");
+			//connector.Insert("Directors", "director_id, first_name, last_name", "7, 'Steven', 'Spielberg'");
+			//connector.Insert("Directors", "director_id, first_name, last_name", "8, 'Christopher', 'Nolan'");
+			// Давайте распечатаем их все, чтобы проверить
+			//------------------------------------------------------------------------
 			//Console.WriteLine(connection_string);
 			//connection = new SqlConnection(connection_string);
 

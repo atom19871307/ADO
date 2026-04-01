@@ -72,5 +72,22 @@ namespace PV_522_ADO
 			connection.Close();
 			return value;
 		}
+		//-------------------------------------------------------------------
+		// Метод для вставки данных		// Մեթոդ տվյալներ ավելացնելու համար
+		public void Insert(string table, string fields, object values)
+		{
+			// Формируем SQL запрос
+			string cmd = $"INSERT INTO {table} ({fields}) VALUES ({values})";
+
+			SqlCommand command = new SqlCommand(cmd, connection);
+			connection.Open();
+			// ExecuteNonQuery-ն օգտագործվում է INSERT, UPDATE, DELETE հրամանների համար
+			// Այն վերադարձնում է ազդեցության ենթարկված տողերի քանակը
+			int rowsAffected = command.ExecuteNonQuery();
+			connection.Close() ;
+
+			Console.WriteLine($"Успешно добавлено строк: {rowsAffected}");
+		}
+		//--------------------------------------------------------------------
 	}
 }
