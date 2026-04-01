@@ -38,7 +38,5 @@ namespace PV_522_ADO
 			/*Select("SELECT title,release_date,first_name,last_name FROM Movies,Directors WHERE director=director_id");*/
 
 		}
-
-
 	}
 }
