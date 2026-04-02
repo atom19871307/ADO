@@ -33,6 +33,8 @@ namespace PV_522_ADO
 			connector.Select("SELECT * FROM Directors");
 			//connector.Insert("Directors", "director_id, first_name, last_name", "7, 'Steven', 'Spielberg'");
 			//connector.Insert("Directors", "director_id, first_name, last_name", "8, 'Christopher', 'Nolan'");
+			//connector.Insert("Directors", "director_id, first_name, last_name", "9, 'Quentin', 'Tarantino'");
+			//connector.Insert("Directors", "director_id, first_name, last_name", "10, 'Martin', 'Scorsese'");
 			// Давайте распечатаем их все, чтобы проверить
 			//------------------------------------------------------------------------
 			//Console.WriteLine(connection_string);
