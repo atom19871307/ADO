@@ -1,0 +1,1 @@
+﻿SELECT director_Id FROM Directors WHERE  first_name=N'James' AND last_name= N''Cameron
