@@ -25,8 +25,7 @@ namespace PV_522_ADO
 
 			Console.WriteLine(connector.GetprimayKeyColumName("Movies"));
 			Console.WriteLine(connector.GetNextPrimaryKey("Movies"));
-			connector.Insert(
-				$"INSERT Directors (director_id, first_name, last_name) VALUES ({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jekson')");
+//onnector.Insert($"INSERT Directors (director_id, first_name, last_name) VALUES ({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jekson')");
 
 			connector.Select("SELECT * FROM Directors");
 			connector.Select("movie_id,title,first_name,last_name", "Movies,Directors", "director=director_id");
@@ -41,6 +40,26 @@ namespace PV_522_ADO
 			//Select("title, release_date, last_name, first_name", "Movies,Directors", "director=director_id");
 			/*Select("SELECT title,release_date,first_name,last_name FROM Movies,Directors WHERE director=director_id");*/
 
+			//***********************************************************************************************
+
+			string fName = "Sergey";
+			string lName = "Parajanov";
+			// Եթե այս մարդը ՉԿԱ բազայում, նոր ավելացրու
+			// Если этого человека нет в базе, добавьте еще один
+			if (!connector.IsExists ("Directors",fName,lName))
+			{
+				// id автоматически будет следующим бесплатным номером
+				// id-ն ավտոմատ կլինի հաջորդ ազատ համարըB
+				int id = connector.GetNextPrimaryKey("Directors");
+				connector.Insert("Directors", "director_id, first_name, last_name", $"{id}, '{fName}', '{lName}'");
+				Console.WriteLine("Запись успешно добавлена!");
+			}
+			else
+			{
+				Console.WriteLine("Этот режиссер уже есть в списке:");
+			}
+
+			//***********************************************************************************************
 		}
 	}
 }

@@ -100,5 +100,30 @@ AND		CONSTRAINT_TYPE=N'PRIMARY KEY'
 			command .ExecuteNonQuery();	
 			connection.Close();
 		}
+
+		//************************************************************************************************************
+		// Метод для проверки, существует ли уже такая запись в таблице
+		public bool IsExists(string table, string firstName, string lastName)
+		{
+			// Формируем SQL-запрос для подсчета количества записей с такими именем и фамилией
+			string cmd = $"SELECT COUNT(*) FROM {table} WHERE first_name = '{firstName}' AND last_name = '{lastName}'";
+			// Выполняем запрос через метод Scalar и преобразуем результат в целое число
+			// Если результат больше 0, значит запись уже существует
+			return Convert.ToInt32(Scalar(cmd)) > 0;
+		}
+		// Метод для добавления новой записи в таблицу
+		// Սա ավելացնելու համար է (այն պետք է լինի ֆայլի վերջում կամ Scalar-ից հետո)
+		public void Insert(string table, string fields, string values)
+		{
+			// Формируем SQL-запрос на вставку данных
+			string cmd = $"INSERT INTO {table} ({fields}) VALUES ({values})";
+			// Создаем команду SQL
+			SqlCommand command = new SqlCommand(cmd, connection);
+			connection.Open();
+			command.ExecuteNonQuery();
+			connection.Close();
+		}
+
+		//*************************************************************************************************************
 	}
 }
