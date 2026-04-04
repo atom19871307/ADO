@@ -72,5 +72,33 @@ namespace PV_522_ADO
 			connection.Close();
 			return value;
 		}
+		public string GetprimayKeyColumName(string table)
+		{
+			string cmd = $@"
+SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
+WHERE CONSTRAINT_NAME=
+(
+SELECT	CONSTRAINT_NAME
+FROM	INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE	TABLE_NAME=N'{table}'
+AND		CONSTRAINT_TYPE=N'PRIMARY KEY'
+);";
+			return Scalar(cmd).ToString();
+		}
+		public int GetLastPrimayKey(string table)
+		{
+			return (int) Scalar($"SELECT MAX({GetprimayKeyColumName(table)}) FROM {table}");
+		}
+		public int GetNextPrimaryKey(string table)
+		{
+			return GetLastPrimayKey(table) + 1;
+		}
+		public void Insert(string cmd)
+		{
+			SqlCommand command = new SqlCommand(cmd, connection);
+			connection.Open();
+			command .ExecuteNonQuery();	
+			connection.Close();
+		}
 	}
 }
