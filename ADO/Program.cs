@@ -25,9 +25,16 @@ namespace PV_522_ADO
 
 			Console.WriteLine(connector.GetprimayKeyColumName("Movies"));
 			Console.WriteLine(connector.GetNextPrimaryKey("Movies"));
-			connector.Insert(
-				$"INSERT Directors (director_id, first_name, last_name) VALUES ({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jekson')");
+			//	connector.Insert($"INSERT Directors (director_id, first_name, last_name) VALUES ({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jekson')");
 
+			connector.Insert
+				(
+				"Directors",
+				"director_id," +
+				" first_name,last_name",
+				$"{connector.GetNextPrimaryKey("Directors")},N'James', N'Cameron'"
+				);
+			
 			connector.Select("SELECT * FROM Directors");
 			connector.Select("movie_id,title,first_name,last_name", "Movies,Directors", "director=director_id");
 

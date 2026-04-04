@@ -100,5 +100,20 @@ AND		CONSTRAINT_TYPE=N'PRIMARY KEY'
 			command .ExecuteNonQuery();	
 			connection.Close();
 		}
+		public void Insert(string table, string fields, string values)
+		{
+			string[] split_fields = fields.Split(',');
+			string[] split_values = values.Split(',');
+			if (split_fields.Length != split_values.Length) return;
+			string condition = ""; 
+			for (int i = 1; i < split_fields.Length; i++)
+			{
+				condition += $"{split_fields[i]}={split_values[i]}";
+				if(i != split_fields.Length - 1)
+					condition += " AND ";
+			}
+			if (Scalar($"SELECT {GetprimayKeyColumName(table)} FROM {table} WHERE {condition}") == null)
+			Insert($"INSERT {table} ({fields})  VALUES ({values})");
+		}
 	}
 }
