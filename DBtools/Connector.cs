@@ -115,5 +115,28 @@ AND		CONSTRAINT_TYPE=N'PRIMARY KEY'
 			if (Scalar($"SELECT {GetprimayKeyColumName(table)} FROM {table} WHERE {condition}") == null)
 				Insert($"INSERT {table} ({fields})  VALUES ({values})");
 		}
+		public void Update(string table, string set_clause, int id)
+			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		{
+			// Определение первичного ключа (Primary Key).
+			// Мы проверяем имя таблицы: если это "Groups", то ID ищем в колонке "group_id".
+			// В противном случае (например, для дисциплин) используем "discipline_id".
+			string primaryKey = (table == "Groups") ? "group_id" : "discipline_id";
+
+			// Формирование SQL-запроса.
+			// Мы создаем строку: UPDATE [ИмяТаблицы] SET [ЧтоМеняем] WHERE [ID_Колонка] = [НомерID]
+			// Знак $ позволяет вставлять значения переменных прямо в текст запроса.
+			string query = $"UPDATE {table} SET {set_clause} WHERE {primaryKey} = {id}";
+
+			// 3. Выполнение команды в базе данных.
+			// Используем 'using', чтобы соединение (SqlCommand) автоматически закрылось и очистило память.
+			using (SqlCommand cmd = new SqlCommand(query, connection))
+			{
+				connection.Open();
+				cmd.ExecuteNonQuery(); // Выполняем запрос (Update не возвращает таблицу, поэтому NonQuery)
+				connection.Close();
+			}
+		}
+		//***********************************************************************
 	}
 }
