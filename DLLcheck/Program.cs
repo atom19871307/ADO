@@ -34,7 +34,7 @@ namespace DLLcheck
 			// Вызываем метод Update для таблицы "Groups". 
 			// Устанавливаем новое имя группы 'PV_522' для записи с ID = 1.
 			// ՀԻՄԱ ԿԱՆՉՈՒՄ ԵՆՔ UPDATE-Ը (բոլորը մեկ Main-ի ներսում)
-			connectorAcademy.Update("Groups", "group_name = N'PV_522'", 1);
+			connectorAcademy.Update("Groups", "group_name = N'PV_522_Imp'", 1);
 			Console.WriteLine("Проверяем базу......");
 			// Выводим сообщение в консоль о том, что операция прошла успешно.
 			Console.WriteLine("Данные успешно обновлены:");
