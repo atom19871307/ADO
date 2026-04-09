@@ -16,6 +16,7 @@ namespace Academy
 	public partial class MainForm : Form
 	{
 		Connector connector;
+		private DataTable studentsData;
 		public MainForm()
 		{
 			InitializeComponent();
