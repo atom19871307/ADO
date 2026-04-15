@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,11 +13,28 @@ namespace Academy
 {
 	public partial class HumanForm : Form
 	{
+		internal Models.Human human;
 		public HumanForm()
 		{
 			InitializeComponent();
 		}
-
-		
+		protected virtual void Compress()
+		{
+			human = new Models.Human
+				(
+				Convert.ToInt32(labelIID.Text == "" ? "0" : labelIID.Text.Split(':').Last()),
+				textBoxLastName.Text,
+				textBoxFirstName.Text,
+				textBoxMiddleName.Text,
+				dtpBirthDate.Value.ToString("yyyy-MM-dd"),
+				textBoxEmail.Text,
+				textBoxPhone.Text,
+				pictureBoxPhoto.Image
+				);
+		}
+		protected virtual void buttonOK_Click(object sender, EventArgs e)
+		{
+			Compress();
+		}
 	}
 }
