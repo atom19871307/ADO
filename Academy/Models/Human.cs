@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Academy.Models
 {
-	 internal class Human
+	internal class Human
 	{
 		internal int id;
-		internal string last_name; 
+		internal string last_name;
 		internal string first_name;
 		internal string middle_name;
 		internal string birth_date;
@@ -25,33 +25,33 @@ namespace Academy.Models
 			)
 		{
 			this.id = id;
-			this.last_name		= last_name;
-			this.first_name		= first_name;
-			this.middle_name	= middle_name;
-			this.birth_date		= birth_date;
-			this.email			= email;
-			this.phone			= phone;
-			this.photo			= photo;
+			this.last_name = last_name;
+			this.first_name = first_name;
+			this.middle_name = middle_name;
+			this.birth_date = birth_date;
+			this.email = email;
+			this.phone = phone;
+			this.photo = photo;
 		}
 		public Human(Human other)
 		{
-			this.id				=other.id;
-			this.last_name		=other.last_name;
-			this.first_name		=other.first_name;
-			this.middle_name	=other.middle_name;
-			this.birth_date		=other.birth_date;
-			this.email			=other.email;
-			this.phone			=other.phone;
-			this.photo			=other.photo;
+			this.id = other.id;
+			this.last_name = other.last_name;
+			this.first_name = other.first_name;
+			this.middle_name = other.middle_name;
+			this.birth_date = other.birth_date;
+			this.email = other.email;
+			this.phone = other.phone;
+			this.photo = other.photo;
 		}
 		public virtual string GetNamse()
 		{
-			return 
+			return
 				"last_name,first_name,middle_name,birth_date, email,phone";
 		}
 		public virtual string GetValus()
 		{
-			return 
+			return
 				$"N'{last_name}',N'{first_name}',N'{middle_name}',N'{birth_date}',N'{email}',N'{phone}'";
 		}
 		public virtual string GetUpdateString()
