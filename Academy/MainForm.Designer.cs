@@ -43,6 +43,7 @@
 			this.dgvDisciplines = new System.Windows.Forms.DataGridView();
 			this.tabPageTeachers = new System.Windows.Forms.TabPage();
 			this.dgvTeachers = new System.Windows.Forms.DataGridView();
+			this.btnAddTeacher = new System.Windows.Forms.TextBox();
 			this.statusStrip1.SuspendLayout();
 			this.tabControl.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
@@ -218,6 +219,7 @@
 			// 
 			// tabPageTeachers
 			// 
+			this.tabPageTeachers.Controls.Add(this.btnAddTeacher);
 			this.tabPageTeachers.Controls.Add(this.dgvTeachers);
 			this.tabPageTeachers.Location = new System.Drawing.Point(4, 25);
 			this.tabPageTeachers.Name = "tabPageTeachers";
@@ -240,6 +242,15 @@
 			this.dgvTeachers.RowTemplate.Height = 24;
 			this.dgvTeachers.Size = new System.Drawing.Size(518, 260);
 			this.dgvTeachers.TabIndex = 1;
+			this.dgvTeachers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTeachers_CellMouseDoubleClick_1);
+			// 
+			// btnAddTeacher
+			// 
+			this.btnAddTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnAddTeacher.Location = new System.Drawing.Point(25, 230);
+			this.btnAddTeacher.Name = "btnAddTeacher";
+			this.btnAddTeacher.Size = new System.Drawing.Size(100, 38);
+			this.btnAddTeacher.TabIndex = 2;
 			// 
 			// MainForm
 			// 
@@ -262,6 +273,7 @@
 			this.tabPageDisciplins.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvDisciplines)).EndInit();
 			this.tabPageTeachers.ResumeLayout(false);
+			this.tabPageTeachers.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -285,6 +297,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
 		private System.Windows.Forms.ComboBox cbGroupsDirection;
 		private System.Windows.Forms.Button buttonAddStudent;
+		private System.Windows.Forms.TextBox btnAddTeacher;
 	}
 }
 

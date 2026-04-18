@@ -80,5 +80,24 @@ namespace Academy
 			StudentForm form = new StudentForm(id);
 			if (form.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
 		}
+		private void dgvTeachers_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.RowIndex >= 0) // Ստուգում ենք, որ սեղմել ես տողի վրա
+			{
+				int id = Convert.ToInt32(dgvTeachers.Rows[e.RowIndex].Cells[0].Value);
+				TeacherForm form = new TeacherForm();
+				if (form.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
+			}
+		}
+
+		private void btnAddTeacher_Click(object sender, EventArgs e)
+		{
+			TeacherForm form = new TeacherForm(); // Կանչում է դատարկ կոնստրուկտորը
+			if (form.ShowDialog() == DialogResult.OK)
+			{
+				// Սա թարմացնում է աղյուսակը, որպեսզի նոր ուսուցիչը երևա
+				tabControl_SelectedIndexChanged(tabControl, null);
+			}
+		}
 	}
 }
