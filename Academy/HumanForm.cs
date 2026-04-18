@@ -46,10 +46,5 @@ namespace Academy
 		{
 			Compress();
 		}
-
-		private void textBoxEmail_TextChanged(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

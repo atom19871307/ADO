@@ -147,7 +147,6 @@
 			this.textBoxEmail.Name = "textBoxEmail";
 			this.textBoxEmail.Size = new System.Drawing.Size(292, 34);
 			this.textBoxEmail.TabIndex = 9;
-			this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
 			// 
 			// textBoxPhone
 			// 
@@ -193,7 +192,7 @@
 			// 
 			this.buttonCencel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.buttonCencel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonCencel.Location = new System.Drawing.Point(550, 359);
+			this.buttonCencel.Location = new System.Drawing.Point(550, 411);
 			this.buttonCencel.Name = "buttonCencel";
 			this.buttonCencel.Size = new System.Drawing.Size(208, 41);
 			this.buttonCencel.TabIndex = 14;
@@ -204,7 +203,7 @@
 			// 
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonOK.Location = new System.Drawing.Point(334, 359);
+			this.buttonOK.Location = new System.Drawing.Point(334, 411);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(208, 41);
 			this.buttonOK.TabIndex = 15;
@@ -226,7 +225,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.HotTrack;
-			this.ClientSize = new System.Drawing.Size(841, 531);
+			this.ClientSize = new System.Drawing.Size(841, 480);
 			this.Controls.Add(this.labelIID);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.buttonCencel);
