@@ -248,7 +248,6 @@
 			this.MinimizeBox = false;
 			this.Name = "HumanForm";
 			this.Text = "HumanForm";
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
