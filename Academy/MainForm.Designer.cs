@@ -42,8 +42,8 @@
 			this.tabPageDisciplins = new System.Windows.Forms.TabPage();
 			this.dgvDisciplines = new System.Windows.Forms.DataGridView();
 			this.tabPageTeachers = new System.Windows.Forms.TabPage();
-			this.dgvTeachers = new System.Windows.Forms.DataGridView();
 			this.btnAddTeacher = new System.Windows.Forms.TextBox();
+			this.dgvTeachers = new System.Windows.Forms.DataGridView();
 			this.statusStrip1.SuspendLayout();
 			this.tabControl.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
@@ -129,6 +129,7 @@
 			this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvStudents.Size = new System.Drawing.Size(518, 242);
 			this.dgvStudents.TabIndex = 1;
+			this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
 			this.dgvStudents.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStudents_CellMouseDoubleClick);
 			// 
 			// tabPageGroups
@@ -229,6 +230,14 @@
 			this.tabPageTeachers.Text = "Teachers";
 			this.tabPageTeachers.UseVisualStyleBackColor = true;
 			// 
+			// btnAddTeacher
+			// 
+			this.btnAddTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnAddTeacher.Location = new System.Drawing.Point(25, 230);
+			this.btnAddTeacher.Name = "btnAddTeacher";
+			this.btnAddTeacher.Size = new System.Drawing.Size(100, 38);
+			this.btnAddTeacher.TabIndex = 2;
+			// 
 			// dgvTeachers
 			// 
 			this.dgvTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -243,14 +252,6 @@
 			this.dgvTeachers.Size = new System.Drawing.Size(518, 260);
 			this.dgvTeachers.TabIndex = 1;
 			this.dgvTeachers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTeachers_CellMouseDoubleClick_1);
-			// 
-			// btnAddTeacher
-			// 
-			this.btnAddTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnAddTeacher.Location = new System.Drawing.Point(25, 230);
-			this.btnAddTeacher.Name = "btnAddTeacher";
-			this.btnAddTeacher.Size = new System.Drawing.Size(100, 38);
-			this.btnAddTeacher.TabIndex = 2;
 			// 
 			// MainForm
 			// 

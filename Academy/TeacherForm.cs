@@ -12,6 +12,7 @@ namespace Academy
 {
 	public partial class TeacherForm : HumanForm
 	{
+		// 1.чтобы объект teacher был доступен
 		// 1.որպեսզի teacher օբյեկտը հասանելի լինի
 		Models.Teacher teacher;
 		public TeacherForm()

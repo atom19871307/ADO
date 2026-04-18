@@ -82,7 +82,7 @@ namespace Academy
 		}
 		private void dgvTeachers_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.RowIndex >= 0) // Ստուգում ենք, որ սեղմել ես տողի վրա
+			if (e.RowIndex >= 0) //Проверяем, нажал ли я на строку Ստուգում ենք, որ սեղմել եմ տողի վրա
 			{
 				int id = Convert.ToInt32(dgvTeachers.Rows[e.RowIndex].Cells[0].Value);
 				TeacherForm form = new TeacherForm();
@@ -92,12 +92,18 @@ namespace Academy
 
 		private void btnAddTeacher_Click(object sender, EventArgs e)
 		{
-			TeacherForm form = new TeacherForm(); // Կանչում է դատարկ կոնստրուկտորը
+			TeacherForm form = new TeacherForm(); //Вызывает пустой конструктор Կանչում է դատարկ կոնստրուկտորը
 			if (form.ShowDialog() == DialogResult.OK)
 			{
+				//Это обновляет таблицу, так что появляется новый учитель. 
 				// Սա թարմացնում է աղյուսակը, որպեսզի նոր ուսուցիչը երևա
 				tabControl_SelectedIndexChanged(tabControl, null);
 			}
+		}
+
+		private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
 		}
 	}
 }
