@@ -46,5 +46,18 @@ namespace Academy
 		{
 			Compress();
 		}
+		private void pictureBoxPhoto_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog dialog = new OpenFileDialog();
+			dialog.Filter = 
+"JPG files|*.jpg|PNG files |*.png|All image files|*.png;*.jpg|All files |*.*";
+			if (dialog.ShowDialog() == DialogResult.OK)
+				pictureBoxPhoto.Image = Image.FromFile(dialog.FileName);
+		}
+
+		private void buttonBrowse_Click(object sender, EventArgs e)
+		{
+			pictureBoxPhoto_Click(sender, e);
+		}
 	}
 }

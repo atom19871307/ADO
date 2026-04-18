@@ -175,8 +175,10 @@
 			this.pictureBoxPhoto.Location = new System.Drawing.Point(550, 21);
 			this.pictureBoxPhoto.Name = "pictureBoxPhoto";
 			this.pictureBoxPhoto.Size = new System.Drawing.Size(208, 285);
+			this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBoxPhoto.TabIndex = 12;
 			this.pictureBoxPhoto.TabStop = false;
+			this.pictureBoxPhoto.Click += new System.EventHandler(this.pictureBoxPhoto_Click);
 			// 
 			// buttonBrowse
 			// 
@@ -187,6 +189,7 @@
 			this.buttonBrowse.TabIndex = 13;
 			this.buttonBrowse.Text = "Обзор";
 			this.buttonBrowse.UseVisualStyleBackColor = true;
+			this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
 			// 
 			// buttonCencel
 			// 
@@ -268,10 +271,10 @@
 		private System.Windows.Forms.TextBox textBoxEmail;
 		private System.Windows.Forms.TextBox textBoxPhone;
 		private System.Windows.Forms.DateTimePicker dtpBirthDate;
-		private System.Windows.Forms.PictureBox pictureBoxPhoto;
 		private System.Windows.Forms.Button buttonBrowse;
 		private System.Windows.Forms.Button buttonCencel;
 		private System.Windows.Forms.Button buttonOK;
 		private System.Windows.Forms.Label labelIID;
+		protected System.Windows.Forms.PictureBox pictureBoxPhoto;
 	}
 }

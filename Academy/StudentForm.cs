@@ -46,6 +46,8 @@ DataBase.Connector.Scalar
 				(
 				"Students",student.GetNamse(),	student.GetValus(),	$"stud_id={student.id}"
 				);
+			if(pictureBoxPhoto != null)
+				DataBase.Connector.UploadPhoto(student.SeriaizePhoto(), student.id, "photo", "Students");
 			//string Hello = "Hello";
 			//Hello;
 			//"Hello"
