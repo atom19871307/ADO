@@ -25,6 +25,11 @@ namespace Academy.Models
 		{
 			this.group = group;
 		}
+		public Student(object[] values) : base(values)
+		{
+			group = Convert.ToInt32(values[8]);
+		}
+
 		public override string GetNamse()
 		{
 			return base.GetNamse()+",[group]";

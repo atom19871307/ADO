@@ -20,15 +20,34 @@ namespace Academy
 			cbStudentsGroup.DisplayMember = "group_name";
 			cbStudentsGroup.ValueMember = "group_id";
 		}
+		public StudentForm(int id) : this()
+		{
+			DataTable table = DataBase.Connector.Load($"SELECT * FROM Students WHERE stud_id={id}");
+			student = new Models.Student(table.Rows[0].ItemArray);
+			human = student;
+			Extract();
+		}
+		protected override void Extract()
+		{
+			base.Extract();
+			cbStudentsGroup.SelectedValue = Convert.ToInt32(student.group);
+		}
 		protected override void buttonOK_Click(object sender, EventArgs e)
 		{
 			base.buttonOK_Click(sender, e);
 			student = new Models.Student(human,(int)cbStudentsGroup.SelectedValue);
 			if (student.id == 0) student.id =
-			Convert.ToInt32 
+			student.id =  Convert.ToInt32
 			(
 DataBase.Connector.Scalar
 ($"INSERT Students({student.GetNamse()}) VALUES ({student.GetValus()});SELECT SCOPE_IDENTITY();")
+				);
+			else DataBase.Connector.Update
+					(
+				"Students",
+			student.GetNamse(),
+			student.GetValus(),
+			$"stud_id={student.id}"
 				);
 		}
 	}

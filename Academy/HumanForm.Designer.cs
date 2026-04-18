@@ -142,11 +142,12 @@
 			// 
 			this.textBoxEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.textBoxEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-			this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.textBoxEmail.Location = new System.Drawing.Point(250, 218);
 			this.textBoxEmail.Name = "textBoxEmail";
-			this.textBoxEmail.Size = new System.Drawing.Size(292, 38);
+			this.textBoxEmail.Size = new System.Drawing.Size(292, 34);
 			this.textBoxEmail.TabIndex = 9;
+			this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
 			// 
 			// textBoxPhone
 			// 
