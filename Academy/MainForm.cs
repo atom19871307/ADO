@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Configuration;
 using DBtools;
+using System.Runtime.InteropServices;
 
 namespace Academy
 {
@@ -37,6 +38,7 @@ namespace Academy
 		};
 		public MainForm()
 		{
+			AllocConsole();
 			InitializeComponent();
 
 			tables = new DataGridView[] { dgvStudents, dgvGroups, dgvDirections, dgvDisciplines, dgvTeachers };
@@ -49,7 +51,8 @@ namespace Academy
 			cbGroupsDirection.DisplayMember = "direction_name";
 			cbGroupsDirection.ValueMember = "direction_id";
 		}
-
+		[DllImport("kernel32.dll")]
+		public static extern bool AllocConsole();
 		private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			int i = (sender as TabControl).SelectedIndex;
@@ -79,6 +82,11 @@ namespace Academy
 			int id = Convert.ToInt32( dgvStudents.Rows[e.RowIndex].Cells[0].Value);
 			StudentForm form = new StudentForm(id);
 			if (form.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
+		}
+
+		private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
 		}
 	}
 }
