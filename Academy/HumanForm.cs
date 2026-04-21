@@ -39,8 +39,9 @@ namespace Academy
 			textBoxFirstName.Text = human.first_name;
 			textBoxMiddleName .Text = human.middle_name ;
 			dtpBirthDate.Value = Convert.ToDateTime(human.birth_date);
-			textBoxEmail.Text = human.email ;
-			textBoxPhone .Text = human.phone ;
+			textBoxEmail.Text = human.email;
+			textBoxPhone .Text = human.phone;
+			pictureBoxPhoto .Image = human.photo;
 		}
 		protected virtual void buttonOK_Click(object sender, EventArgs e)
 		{
