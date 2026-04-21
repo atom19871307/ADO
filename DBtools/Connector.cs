@@ -180,22 +180,31 @@ AND		CONSTRAINT_TYPE=N'PRIMARY KEY'
 		}
 		public Image DowloadPhoto(int id, string table, string field)
 		{
+			//Image photo = null;
+			//string cmd = $"SELECT {field} FROM {table} WHERE {GetprimayKeyColumName(table)} = {id}";
+			//SqlCommand command = new SqlCommand(cmd,connection);
+			//connection.Open();
+			//SqlDataReader reader = command.ExecuteReader();
+			//if (reader.Read())
+			//{
+			//	if (!reader.IsDBNull(0))
+			//	{
+			//		MemoryStream ms = new MemoryStream(reader[0] as byte[]);
+			//		photo = Image.FromStream(ms);
+			//		ms.Close();
+			//	}
+			//}
+			//reader.Close();
+			//connection.Close();
+			//return photo;
 			Image photo = null;
-			string cmd = $"SELECT {field} FROM {table} WHERE {GetprimayKeyColumName(table)} = {id}";
-			SqlCommand command = new SqlCommand(cmd,connection);
-			connection.Open();
-			SqlDataReader reader = command.ExecuteReader();
-			if (reader.Read())
+			object data = Scalar($"SELECT {field} FROM {table} WHERE {GetprimayKeyColumName(table)} = {id}");
+			if (!Convert.IsDBNull(data))
 			{
-				if (!reader.IsDBNull(0))
-				{
-					MemoryStream ms = new MemoryStream(reader[0] as byte[]);
-					photo = Image.FromStream(ms);
-					ms.Close();
-				}
+				MemoryStream ms = new MemoryStream(data as byte[]);
+				photo = Image.FromStream(ms);
+				ms.Close();
 			}
-			reader.Close();
-			connection.Close();
 			return photo;
 		}
 	}
