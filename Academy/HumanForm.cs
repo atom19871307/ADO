@@ -36,13 +36,13 @@ namespace Academy
 		protected virtual void Extract()
 		{
 			labelIID.Text = $"ID:{human.id}";
-			textBoxLastName.Text = human.last_name ;
+			textBoxLastName.Text = human.last_name;
 			textBoxFirstName.Text = human.first_name;
-			textBoxMiddleName .Text = human.middle_name ;
+			textBoxMiddleName.Text = human.middle_name;
 			dtpBirthDate.Value = Convert.ToDateTime(human.birth_date);
 			textBoxEmail.Text = human.email;
-			textBoxPhone .Text = human.phone;
-			pictureBoxPhoto .Image = human.photo;
+			textBoxPhone.Text = human.phone;
+			pictureBoxPhoto.Image = human.photo;
 		}
 		protected virtual void buttonOK_Click(object sender, EventArgs e)
 		{
@@ -51,7 +51,7 @@ namespace Academy
 		private void pictureBoxPhoto_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog dialog = new OpenFileDialog();
-			dialog.Filter = 
+			dialog.Filter =
 "JPG files|*.jpg|PNG files |*.png|All image files|*.png;*.jpg|All files |*.*";
 			if (dialog.ShowDialog() == DialogResult.OK)
 				pictureBoxPhoto.Image = Image.FromFile(dialog.FileName);
