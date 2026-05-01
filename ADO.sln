@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLcheck", "DLLcheck\DLLche
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy", "Academy\Academy.csproj", "{EDB3A44E-30A5-4476-A4D0-D3F2B1D02EF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcedemyWPF", "AcedemyWPF\AcedemyWPF.csproj", "{EA350201-EFEE-4E22-AD87-BFBC08D8DC69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EDB3A44E-30A5-4476-A4D0-D3F2B1D02EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB3A44E-30A5-4476-A4D0-D3F2B1D02EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB3A44E-30A5-4476-A4D0-D3F2B1D02EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA350201-EFEE-4E22-AD87-BFBC08D8DC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA350201-EFEE-4E22-AD87-BFBC08D8DC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA350201-EFEE-4E22-AD87-BFBC08D8DC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA350201-EFEE-4E22-AD87-BFBC08D8DC69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
